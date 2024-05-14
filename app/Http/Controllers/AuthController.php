@@ -81,7 +81,7 @@ class AuthController extends Controller
 
         $id = Auth::user()->id;
         $adminData = User::find($id);
-        $posts =Post::orderBy('desc','created_at')->where('user_id',$adminData->id)->get();
+        $posts =Post::orderBy('id','desc')->where('user_id',$adminData->id)->get();
         // return $posts;
         $comments=Comment::all();
         return view('Admin.admin_profile_view',compact('adminData','posts','comments'));
